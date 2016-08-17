@@ -611,7 +611,8 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
 - (void)createImagePickerControllerWithSourceType:(UIImagePickerControllerSourceType)sourceType{
     UIImagePickerController *controller = [[UIImagePickerController alloc] init];
     controller.sourceType = sourceType;
-    controller.allowsEditing = YES;
+//    controller.allowsEditing = YES;
+    controller.allowsEditing = NO;
     controller.delegate = self;
 	
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
