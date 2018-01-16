@@ -92,6 +92,8 @@
 {
     [super configureCell:cell atIndexPath:indexPath];
 
+    self.textView.frame = CGRectMake(5, 0, cell.bounds.size.width - 10, ContentCellHeight);
+
     [cell.contentView addSubview:self.textView];
 }
 
