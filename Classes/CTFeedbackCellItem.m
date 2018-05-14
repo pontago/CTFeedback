@@ -35,7 +35,9 @@
     [cell.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 
     cell.textLabel.text = nil;
+    cell.textLabel.font = [UIFont systemFontOfSize:16];
     cell.detailTextLabel.text = nil;
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:16];
     cell.accessoryType = UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }

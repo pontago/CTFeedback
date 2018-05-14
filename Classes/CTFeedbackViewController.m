@@ -553,6 +553,28 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section {
+    CGFloat sectionHeight = [self tableView:tableView heightForHeaderInSection:section];
+    if (sectionHeight == 0.0) {
+      return nil;
+    }
+    
+    
+    NSString *text  = [self tableView:tableView titleForHeaderInSection:section];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, tableView.bounds.size.width - 5, sectionHeight)];
+    label.text = text;
+    label.backgroundColor = [UIColor clearColor];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, sectionHeight)];
+    headerView.backgroundColor = UIColor.groupTableViewBackgroundColor;
+    label.font = [UIFont boldSystemFontOfSize:16];
+    label.textColor = [UIColor blackColor];
+    
+    [headerView addSubview:label];
+    
+    return headerView;
+}
+
 #pragma mark - Scroll view delegate
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
