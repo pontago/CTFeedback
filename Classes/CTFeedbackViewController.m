@@ -232,7 +232,8 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
                                                                  delegate:weakSelf
                                                         cancelButtonTitle:CTFBLocalizedString(@"Cancel")
                                                    destructiveButtonTitle:nil
-                                                        otherButtonTitles:CTFBLocalizedString(@"Camera"), CTFBLocalizedString(@"PhotoLibrary"), nil];
+//                                                        otherButtonTitles:CTFBLocalizedString(@"Camera"), CTFBLocalizedString(@"PhotoLibrary"), nil];
+                                                        otherButtonTitles:CTFBLocalizedString(@"PhotoLibrary"), nil];
 		[choiceSheet showInView:weakSelf.view];
     };
 
@@ -658,14 +659,15 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
 
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex {
     UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    if (buttonIndex == 0) {
+//        // camera
+//        if([self isCameraAvailable]) {
+//            sourceType = UIImagePickerControllerSourceTypeCamera;
+//        }
+//
+//        [self createImagePickerControllerWithSourceType:sourceType];
+//    } else if (buttonIndex == 1) {
     if (buttonIndex == 0) {
-        // camera
-        if([self isCameraAvailable]) {
-            sourceType = UIImagePickerControllerSourceTypeCamera;
-        }
-
-        [self createImagePickerControllerWithSourceType:sourceType];
-    } else if (buttonIndex == 1) {
         // PhotoLibrary
         [self createImagePickerControllerWithSourceType:sourceType];
     }
